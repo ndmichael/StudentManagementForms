@@ -1,2 +1,2 @@
 # StudentManagementForms
-Creating student forms with Formik reusable form components, styled with Chakra UI
+Student forms created with Formik reusable form components, styled with Chakra UI
