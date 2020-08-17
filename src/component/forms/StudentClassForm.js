@@ -2,9 +2,11 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import FormikControl from '../FormikControl'
-import { Button, Grid, Alert, AlertIcon } from '@chakra-ui/core'
+import { Button, Grid} from '@chakra-ui/core'
+import AlertMsg from '../AlertMsg'
 
 function StudentClassForm() {
+    let getValues = null
     const initialValues = {
         lastname: '',
         firstname: '',
@@ -28,7 +30,13 @@ function StudentClassForm() {
     })
 
     const onSubmit = (values, onSubmitProps) => {
-        console.log("entered values are: ", values)
+        
+        // console.log("entered values are: ", onSubmitProps);
+        onSubmitProps.resetForm()
+        onSubmitProps.setSubmitting(false)
+        onSubmitProps.setStatus('submitted')
+
+        
     }
 
     const genderOptions = [
@@ -72,25 +80,17 @@ function StudentClassForm() {
         { key: 'English', value: 'english' }
     ]
 
-
     return (
+        
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+            
             {
                 formik => {
-                    console.log(formik)
+
+                    console.log(formik);
+
                     return <Form>
-                        {
-                            formik.submitCount > 0 ?
-                                <Grid templateColumns="repeat(1, 10fr)" gap={10} mt="4" rowGap={6}>
-                                    <Alert status="success">
-                                        <AlertIcon />
-                                    Student Class has been registed for <strong>{formik.values.firstname}  {formik.values.lastname}</strong> with id number <strong>{formik.values.studentID}</strong>
-                                    </Alert>
-                                </Grid> : null
-
-                        }
-
-
+                        { formik.status?<AlertMsg values={getValues} />: null }
                         <Grid templateColumns="repeat(2, 6fr)" mt="4" gap={6} rowGap={6}>
                             <FormikControl
                                 control="chakraInput"
@@ -178,8 +178,6 @@ function StudentClassForm() {
 
 
                         <Button type="submit" variantColor="green" size="lg" mt="4" disabled={!formik.isValid}>Submit </Button>
-
-
                     </Form>
                 }
             }
