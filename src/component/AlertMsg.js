@@ -6,7 +6,7 @@ const AlertMsg =(props) => {
     return (
         <div>
         
-                <Grid templateColumns="repeat(1, 10fr)" gap={10} mt="4" rowGap={6}>
+                <Grid templateColumns="repeat(1, 10fr)" gap={10} my="5px" rowGap={6}>
                     <Alert status="success">
                         <AlertIcon />
                         Form has been successfully submitted

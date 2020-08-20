@@ -1,14 +1,14 @@
 import React from 'react'
-import {Grid, Box, Text, Link} from '@chakra-ui/core'
+import {Box, Text, Button} from '@chakra-ui/core'
 
 function Header() {
     return (
-        <Box color="white" p="5">
+        <Box width="100%" display={{ md: "flex" }} color="white" p={["5px", "20px"]}>
             <Box w="100%">
                 <Text fontSize="1.5em" fontWeight="700">StudentClassForm</Text>
             </Box>
-            <Box textAlign="center">
-                <Text>Download</Text>
+            <Box w="100%" textAlign="right" color="#008080">
+                 <Button>Download</Button>
             </Box>
         </Box>
     )
