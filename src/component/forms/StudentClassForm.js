@@ -91,7 +91,7 @@ function StudentClassForm() {
 
                     return <Form>
                         {formik.status ? <AlertMsg values={getValues} /> : null}
-                        <Box display={{ md: "flex" }} width={['100%', "1/2"]} mb="5px">
+                        <Box display={{ md: "flex" }} width={['100%', "1/2"]} mb="15px">
                             <Box w="100%" pr={{ md: "3" }}>
                                 <FormikControl
                                     control="chakraInput"
@@ -112,7 +112,7 @@ function StudentClassForm() {
 
                         </Box>
 
-                        <Box display={{ md: "flex" }} width={['100%', "1/2"]} mb="5px">
+                        <Box display={{ md: "flex" }} width={['100%', "1/2"]} mb="15px">
                             <Box w="100%" pr={{ md: "3" }}>
                                 <FormikControl
                                     control="chakraInput"
@@ -134,7 +134,7 @@ function StudentClassForm() {
 
                         </Box>
 
-                        <Box w="100%" mb="10px">
+                        <Box w="100%" mb="15px">
                             <FormikControl
                                 control="chakraRadio"
                                 label="Gender"
@@ -143,7 +143,7 @@ function StudentClassForm() {
                             />
                         </Box>
 
-                        <Box display={{ md: "flex" }} width={['100%', "1/2"]} mb="5px">
+                        <Box display={{ md: "flex" }} width={['100%', "1/2"]} mb="15px">
                             <Box w="100%" pr={{ md: "3" }}>
                                 <FormikControl
                                     control="chakraSelect"
@@ -187,10 +187,7 @@ function StudentClassForm() {
                             }
                         </Box>
 
-
-
-
-                        <Button type="submit" variantColor="teal" size="lg" mt="4" disabled={!formik.isValid}>Submit </Button>
+                        <Button type="submit" variantColor="teal" size="lg" mt="20px" disabled={!formik.isValid}>Submit </Button>
                     </Form>
                 }
             }

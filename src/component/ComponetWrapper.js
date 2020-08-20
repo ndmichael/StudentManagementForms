@@ -7,7 +7,7 @@ import Footer from './Footer'
 function ComponetWrapper() {
 
     return (
-        <Box>
+        <Box m={["20px"]}>
             <Box bg="#008080">
                 <Header />
             </Box>    
