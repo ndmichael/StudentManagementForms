@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import FormikControl from '../FormikControl'
-import { Button, Grid} from '@chakra-ui/core'
+import { Button, Box } from '@chakra-ui/core'
 import AlertMsg from '../AlertMsg'
 
 function StudentClassForm() {
@@ -30,13 +30,13 @@ function StudentClassForm() {
     })
 
     const onSubmit = (values, onSubmitProps) => {
-        
+
         // console.log("entered values are: ", onSubmitProps);
         onSubmitProps.resetForm()
         onSubmitProps.setSubmitting(false)
         onSubmitProps.setStatus('submitted')
 
-        
+
     }
 
     const genderOptions = [
@@ -81,74 +81,87 @@ function StudentClassForm() {
     ]
 
     return (
-        
+
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-            
+
             {
                 formik => {
 
                     console.log(formik);
 
                     return <Form>
-                        { formik.status?<AlertMsg values={getValues} />: null }
-                        <Grid templateColumns="repeat(2, 6fr)" mt="4" gap={6} rowGap={6}>
-                            <FormikControl
-                                control="chakraInput"
-                                type="text"
-                                label="FirstName"
-                                name="firstname"
-                            />
+                        {formik.status ? <AlertMsg values={getValues} /> : null}
+                        <Box display={{ md: "flex" }} width={['100%', "1/2"]} mb="5px">
+                            <Box w="100%" pr={{ md: "3" }}>
+                                <FormikControl
+                                    control="chakraInput"
+                                    type="text"
+                                    label="FirstName"
+                                    name="firstname"
 
-                            <FormikControl
-                                control="chakraInput"
-                                type="text"
-                                label="LastName"
-                                name="lastname"
-                            />
-                        </Grid>
+                                />
+                            </Box>
+                            <Box w="100%">
+                                <FormikControl
+                                    control="chakraInput"
+                                    type="text"
+                                    label="LastName"
+                                    name="lastname"
+                                />
+                            </Box>
 
-                        <Grid templateColumns="repeat(2, 6fr)" mt="4" gap={6} rowGap={6}>
-                            <FormikControl
-                                control="chakraInput"
-                                type="email"
-                                label="Email"
-                                name="email"
-                            />
+                        </Box>
 
-                            <FormikControl
-                                control="chakraInput"
-                                type="text"
-                                label="Student ID"
-                                name="studentID"
-                            />
-                        </Grid>
+                        <Box display={{ md: "flex" }} width={['100%', "1/2"]} mb="5px">
+                            <Box w="100%" pr={{ md: "3" }}>
+                                <FormikControl
+                                    control="chakraInput"
+                                    type="email"
+                                    label="Email"
+                                    name="email"
+                                />
 
-                        <Grid templateColumns="repeat(1, 6fr)" mt="4" rowGap={6}>
+                            </Box>
+
+                            <Box w="100%">
+                                <FormikControl
+                                    control="chakraInput"
+                                    type="text"
+                                    label="Student ID"
+                                    name="studentID"
+                                />
+                            </Box>
+
+                        </Box>
+
+                        <Box w="100%" mb="10px">
                             <FormikControl
                                 control="chakraRadio"
                                 label="Gender"
                                 name="gender"
                                 options={genderOptions}
                             />
+                        </Box>
 
-
-                        </Grid>
-
-                        <Grid templateColumns="repeat(2, 6fr)" mt="4" gap={6} rowGap={6}>
-                            <FormikControl
-                                control="chakraSelect"
-                                label="School Year"
-                                name="studentLevel"
-                                options={levelOptions}
-                            />
-                            <FormikControl
-                                control="chakraSelect"
-                                label="department"
-                                name="department"
-                                options={departmentOptions}
-                            />
-                        </Grid>
-                        <Grid templateColumns="repeat(1, 6fr)" gap={6} mt="4" rowGap={6}>
+                        <Box display={{ md: "flex" }} width={['100%', "1/2"]} mb="5px">
+                            <Box w="100%" pr={{ md: "3" }}>
+                                <FormikControl
+                                    control="chakraSelect"
+                                    label="School Year"
+                                    name="studentLevel"
+                                    options={levelOptions}
+                                />
+                            </Box>
+                            <Box w="100%" >
+                                <FormikControl
+                                    control="chakraSelect"
+                                    label="department"
+                                    name="department"
+                                    options={departmentOptions}
+                                />
+                            </Box>
+                        </Box>
+                        <Box>
                             {
                                 formik.values.department === "computerSc" ?
 
@@ -169,15 +182,15 @@ function StudentClassForm() {
                                                 label="Subjects"
                                                 name="subjects"
                                                 options={aSubjectOptions}
-                                            />: null
-                            
-                        }
-                        </Grid>
+                                            /> : null
+
+                            }
+                        </Box>
 
 
 
 
-                        <Button type="submit" variantColor="green" size="lg" mt="4" disabled={!formik.isValid}>Submit </Button>
+                        <Button type="submit" variantColor="teal" size="lg" mt="4" disabled={!formik.isValid}>Submit </Button>
                     </Form>
                 }
             }

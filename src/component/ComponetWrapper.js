@@ -1,24 +1,26 @@
 import React from 'react'
 import StudentClassForm from '../component/forms/StudentClassForm'
-import {Grid} from '@chakra-ui/core'
+import {Box} from '@chakra-ui/core'
+import Header from './Header'
+import Footer from './Footer'
 
 function ComponetWrapper() {
 
     return (
-        <Grid>
-            <Grid>
-                
-            </Grid>
+        <Box>
+            <Box bg="#008080">
+                <Header />
+            </Box>    
 
-            <Grid>
-                <StudentClassForm  /> 
-            </Grid>
+            <Box p={["5px"]} m={["5px"]}>
+                <StudentClassForm />
+            </Box>
 
-            <Grid>
+            <Box>
+                <Footer />
+            </Box>
             
-            </Grid>
-            
-        </Grid>
+        </Box>
     )
 }
 
